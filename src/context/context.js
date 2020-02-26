@@ -241,10 +241,52 @@ class ProductProvider extends Component {
     };
     //handle filtering
     handleChange = event => {
-        console.log(event);
+        const name = event.target.name;
+        const value =
+            event.target.type === "checkbox"
+                ? event.target.checked
+                : event.target.value;
+        this.setState(
+            {
+                [name]: value
+            },
+            this.sortData
+        );
     };
     //SortData
-    sortData = () => {};
+    sortData = () => {
+        const { storeProducts, price, company, shipping, search } = this.state;
+        let tempProducts = [...storeProducts];
+        let tempPrice = parseInt(price);
+        // filtering based on price
+        tempProducts = tempProducts.filter(item => {
+            return item.price <= tempPrice;
+        });
+        // filtering based on company
+        if (company !== "all") {
+            tempProducts = tempProducts.filter(
+                item => item.company === company
+            );
+        }
+        if (shipping) {
+            tempProducts = tempProducts.filter(
+                item => item.freeShipping === true
+            );
+        }
+        if (search.length > 0) {
+            tempProducts = tempProducts.filter(item => {
+                let tempSearch = search.toLowerCase();
+                let tempTitle = item.title
+                    .toLowerCase()
+                    .slice(0, search.length);
+                if (tempSearch === tempTitle) {
+                    return item;
+                }
+            });
+        }
+
+        this.setState({ filteredProducts: tempProducts });
+    };
     render() {
         return (
             <>

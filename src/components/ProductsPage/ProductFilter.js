@@ -72,7 +72,7 @@ export default function ProductFilter() {
                                     <label htmlFor="price">
                                         <p className="mb-2">
                                             product price:
-                                            <span>$ {price} </span>
+                                            <span> ${price} </span>
                                         </p>
                                     </label>
 

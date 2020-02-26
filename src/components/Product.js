@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FaSearch, FaCartPlus } from "react-icons/fa";
-import { ProductCosumer, ProductConsumer } from "../context";
+import { ProductConsumer } from "../context";
 
 export default function Product({ product }) {
     return (

@@ -8,7 +8,7 @@ import Home from "./pages/HomePage";
 import Cart from "./pages/CartPage";
 import SingleProduct from "./pages/SingleProductPage";
 import Default from "./pages/Default";
-
+import ScrollToTop from "./ScrollToTop";
 import { Route, Switch } from "react-router-dom";
 
 import NavBar from "./components/Navbar";
@@ -23,20 +23,21 @@ export default class App extends Component {
                 <NavBar />
                 <Sidebar />
                 <SideCart />
-
-                <Switch>
-                    <Route path="/" exact component={Home} />
-                    <Route path="/about" component={About} />
-                    <Route path="/contact" component={Contact} />
-                    <Route path="/products" exact component={Products} />
-                    <Route
-                        path="/products/:id"
-                        exact
-                        component={SingleProduct}
-                    />
-                    <Route path="/cart" exact component={Cart} />
-                    <Route component={Default} />
-                </Switch>
+                <ScrollToTop>
+                    <Switch>
+                        <Route path="/" exact component={Home} />
+                        <Route path="/about" component={About} />
+                        <Route path="/contact" component={Contact} />
+                        <Route path="/products" exact component={Products} />
+                        <Route
+                            path="/products/:id"
+                            exact
+                            component={SingleProduct}
+                        />
+                        <Route path="/cart" exact component={Cart} />
+                        <Route component={Default} />
+                    </Switch>
+                </ScrollToTop>
                 <Footer />
             </>
         );

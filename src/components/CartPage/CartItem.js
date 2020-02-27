@@ -17,7 +17,7 @@ export default function CartItem({
             {/* image */}
             <div className="con-10 mx-auto col-lg-2 pb-2">
                 <img
-                    src={`../../${image}`}
+                    src={image}
                     width="60"
                     className="img-fluid"
                     alt="product"

@@ -20,7 +20,7 @@ export default function SideCart() {
                                         >
                                             <img
                                                 width="35"
-                                                src={`../${item.image}`}
+                                                src={item.image}
                                                 alt="cart item"
                                             />
                                             <div className="mt-3">
